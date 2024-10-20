@@ -23,5 +23,5 @@ if __name__ == "__main__":
             content += f"<h{num}>{line[num + 1:-1]}</h{num}>\n"
 
     with open(sys.argv[2], 'w') as file:
-        file.writelines(content)
+        file.write(content)
     sys.exit(0)
