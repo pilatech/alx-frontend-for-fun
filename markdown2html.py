@@ -15,4 +15,13 @@ if __name__ == "__main__":
         print(f'Missing {sys.argv[1]}', file=sys.stderr)
         sys.exit(1)
 
+    content = ""
+    with open(sys.argv[1], 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            num = line.count('#')
+            content += f"<h{num}>{line[num + 1:-1]}</h{num}>\n"
+
+    with open(sys.argv[2], 'w') as file:
+        file.writelines(content)
     sys.exit(0)
